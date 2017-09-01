@@ -23,6 +23,7 @@ data:
   neo4j.statements.batch.size: "50"
   neo4j.read.write.url: http://upp-test-data-write-alb-up.ft.com/db/data/
   neo4j.read.only.url: http://upp-test-data-read-alb-up.ft.com/db/data/
+  notification.rw.node.id: 2048854e
   kafka.url: kafka:9092
   kafka.host: kafka
   kafka.port: "9092"
@@ -34,4 +35,3 @@ data:
   zookeeper.host: kafka
   zookeeper.port: "2181"
   upp_gateway.url: upp-uk-gateway-test.in.ft.com:443
-  
