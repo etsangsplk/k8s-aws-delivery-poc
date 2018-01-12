@@ -94,8 +94,7 @@ apiEndpoints:
 
 #    # Existing security groups attached to this load balancer which are typically used to
 #    # allow Kubernetes API accesses from admins and/or CD systems when `apiAccessAllowedSourceCIDRs` are explicitly set to an empty array
-    # todo [customize] per account & region
-    # The group id of aws-composer-custom-k8s-api-internal-access-sg*
+#    Security groups are not supported by NLBs. Moved the security groups directly to the worker nodes, as recommended by https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html#target-security-groups
 #    securityGroupIds:
 #    - {{ api_private_access_sg }}
 
@@ -186,6 +185,8 @@ controller:
     # allow SSH from internal VPC machines. Group name "Internal SSH security group"
     # todo [customize] per account & region
     - {{ vpc_internal_ssh_sg }}
+    # Allow access from internal VPNs to the API server
+    # The group id of aws-composer-custom-k8s-api-internal-access-sg*
     - {{ api_private_access_sg }}
 
 #
